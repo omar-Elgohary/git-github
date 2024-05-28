@@ -1,0 +1,10 @@
+<div class="mt-3 alert alert-success">
+    <?= $message ?>
+    <br>
+    id: <?= $user->id ?>
+    <br>
+    name: <?= $user->name ?>
+    <br>
+    email: <?= $user->email ?>
+</div>
+<?= $this->tag->a('/', 'Go back', ['class' => 'btn btn-primary']);

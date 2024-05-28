@@ -1,0 +1,11 @@
+<div class="alert alert-<?php echo $saved === true ? 'success' : 'danger'; ?>">
+    <?php echo $message ?? ''; ?>
+</div>
+
+<?php if ($error ?? null): ?>
+    <div class="alert alert-danger">
+        <?php echo $error; ?>
+    </div>
+<?php endif; ?>
+
+<?php echo $this->tag->a('/', 'Go back', ['class' => 'btn btn-primary']); ?>

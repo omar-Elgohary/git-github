@@ -1,0 +1,45 @@
+<?php
+
+echo "<h1>Hello From Template!</h1>";
+
+echo $this->tag->a(
+    'signup',
+    'Sign Up Here!',
+    [
+        'class' => 'test'
+    ]
+);
+
+if ($users->count() > 0): ?>
+
+<table class="table mt-3">
+    <thead class="table-secondary">
+        <th>id</th>
+        <th>name</th>
+        <th>email</th>
+        <th>actions</th>
+    </thead>
+    <tbody>
+        <?php foreach ($users as $user): ?>
+        <tr>
+            <td><?= $user->id ?></td>
+            <td><?= $user->name ?></td>
+            <td><?= $user->email ?></td>
+            <td>
+                <?=
+                    $this->tag->a('users/delete/' . $user->id, 'Delete', ['class' => 'btn btn-danger']) .
+                    $this->tag->a('users/edit/' . $user->id, 'Edit', ['class' => 'ms-1 btn btn-primary']) .
+                    $this->tag->a('users/show/' . $user->id, 'Show', ['class' => 'ms-1 btn btn-info'])
+                ?>
+            </td>
+        </tr>
+        <?php endforeach; ?>
+    </tbody>
+    <tfoot class="table-secondary">
+        <tr>
+            <td colspan="4">Users count: <?= $users->count(); ?></td>
+        </tr>
+    </tfoot>
+</table>
+
+<?php endif;

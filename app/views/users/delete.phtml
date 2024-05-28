@@ -1,0 +1,14 @@
+<div class="mt-3 alert alert-<?= $deleted ? 'success' : 'danger' ?>">
+    <?php if ($deleted): ?>
+    <?= $message ?>
+    <br>
+    id: <?= $deleted->id ?>
+    <br>
+    name: <?= $deleted->name ?>
+    <br>
+    email: <?= $deleted->email ?>
+    <?php else: ?>
+    <?= $message ?>
+    <?php endif; ?>
+</div>
+<?= $this->tag->a('/', 'Go back', ['class' => 'btn btn-primary']);

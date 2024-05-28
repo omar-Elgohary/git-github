@@ -1,0 +1,20 @@
+<h1>Edit user: <?= $user->name ?></h1>
+
+<?php echo $this->tag->form(['action' => "/users/update/" . $user->id, 'class' => 'mt-3']); ?>
+
+    <p>
+        <label for="name">Name</label>
+        <?php echo $this->tag->inputText("name", $user->name, ['required'=>'required', 'class' => 'form-control d-inline w-25']); ?>
+    </p>
+
+    <p>
+        <label for="email">E-Mail</label>
+        <?php echo $this->tag->inputEmail("email", $user->email, ['required'=>'required', 'class' => 'form-control d-inline w-25']); ?>
+    </p>
+
+    <p>
+        <?php echo $this->tag->inputSubmit("update", 'Update', ['class' => 'btn btn-primary']); ?>
+        <?php echo $this->tag->a('/', 'Go back', ['class' => 'btn btn-dark']); ?>
+    </p>
+
+</form>
